@@ -94,9 +94,9 @@ const shuffle = (array) => {
     return array;
 };
 
-const doAllParticipantsHaveThreeTables = () => {
+const doAllParticipantsHaveSomewhereToSitAtEveryRound = () => {
     for (let participantIndex = 0; participantIndex < numberOfParticipants; participantIndex++) {
-        if (participants[participantIndex].tables.length < 3) return false;
+        if (participants[participantIndex].tables.length < numberOfTables) return false;
     }
     return true;
 };
@@ -128,7 +128,7 @@ const checkForDuplicateFriends = () => {
     return false;
 };
 
-while (participants.length === 0 || !doAllParticipantsHaveThreeTables()) {
+while (participants.length === 0 || !doAllParticipantsHaveSomewhereToSitAtEveryRound()) {
     startSimulation();
 }
 determineFriends();
